@@ -68,6 +68,14 @@ RSpec.describe "Index Page" do
             end
         end
       end
+      describe "Upcoming holidays are listed in the index page" do
+        it "Upcoming holidays can be seen on the index page" do
+          visit "/merchant/#{@merchant1.id}/bulk_discounts"
+            within "#upcoming-holidays" do
+              expect(page).to have_content("Upcoming US Holidays")
+            end
+        end
+      end
     end
   end
 end
